@@ -18,14 +18,14 @@ export default function HomeTemplate({ places }: MapProps) {
           url: 'https://find-locations.vercel.app',
           title: 'Find Locations',
           description: 'Project to show spots',
-          // images: [
-          //   {
-          //     url: '',
-          //     width: 1280,
-          //     height: 720,
-          //     alt: 'Find Locations'
-          //   }
-          // ],
+          images: [
+            {
+              url: '',
+              width: 1280,
+              height: 720,
+              alt: 'Find Locations'
+            }
+          ],
           site_name: 'Find Locations'
         }}
       />
