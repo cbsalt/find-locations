@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { useRouter } from 'next/dist/client/router';
 import { CloseOutline } from '@styled-icons/evaicons-outline';
@@ -18,6 +19,7 @@ export type PlacesTemplateProps = {
     name: string;
     description?: {
       html: string;
+      text: string;
     };
     gallery: ImageProps[];
   };
@@ -30,6 +32,24 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
 
   return (
     <>
+      <NextSeo
+        title={`${place.name} - Find Locations`}
+        description={place.description?.text || 'Project to show spots'}
+        canonical="https://find-locations.vercel.app"
+        openGraph={{
+          url: 'https://find-locations.vercel.app',
+          title: `${place.name} - Find Locations`,
+          description: place.description?.text || 'Project to show spots',
+          images: [
+            {
+              url: place.gallery[0].url,
+              width: place.gallery[0].width,
+              height: place.gallery[0].height,
+              alt: `${place.name}`
+            }
+          ]
+        }}
+      />
       <LinkWrapper href="/">
         <CloseOutline size={32} aria-label="Go back to map" />
       </LinkWrapper>
